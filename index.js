@@ -73,7 +73,9 @@ app.post("/address", async (req, res) => {
     await address.save();
     res.status(201).json(address);
   } catch (error) {
-    res.status(500).json({ error: "Failed to create address" });
+    res
+      .status(500)
+      .json({ error: "Failed to create address", message: error.message });
   }
 });
 
